@@ -1,6 +1,6 @@
 fs = require('fs'),
 glob = require('glob').globSync,
-Haml = require("haml-blohowiak");
+Haml = require("haml");
 
 stuff = glob("./views/*.haml");
 
