@@ -1,5 +1,5 @@
-$GLOBAL_TEMPLATE$$$={
-  "./views/alt_attribs.haml": function (locals) {
+$templates={
+  "alt_attribs": function (locals) {
 function html_escape(text) {
     return (text + "").
       replace(/&/g, "&amp;").
@@ -15,7 +15,7 @@ with(locals || {}) {
   }
 }
 }
-, "./views/div_nesting.haml": function (locals) {
+, "div_nesting": function (locals) {
 function html_escape(text) {
     return (text + "").
       replace(/&/g, "&amp;").
@@ -31,7 +31,7 @@ with(locals || {}) {
   }
 }
 }
-, "./views/doctype.haml": function (locals) {
+, "doctype": function (locals) {
 function html_escape(text) {
     return (text + "").
       replace(/&/g, "&amp;").
@@ -47,7 +47,7 @@ with(locals || {}) {
   }
 }
 }
-, "./views/embedded_code.haml": function (locals) {
+, "embedded_code": function (locals) {
 function html_escape(text) {
     return (text + "").
       replace(/&/g, "&amp;").
@@ -69,7 +69,7 @@ id +
   }
 }
 }
-, "./views/foreach.haml": function (locals) {
+, "foreach": function (locals) {
 function html_escape(text) {
     return (text + "").
       replace(/&/g, "&amp;").
@@ -108,7 +108,7 @@ word
   }
 }
 }
-, "./views/meta.haml": function (locals) {
+, "meta": function (locals) {
 function html_escape(text) {
     return (text + "").
       replace(/&/g, "&amp;").
@@ -124,7 +124,7 @@ with(locals || {}) {
   }
 }
 }
-, "./views/nanline.haml": function (locals) {
+, "nanline": function (locals) {
 function html_escape(text) {
     return (text + "").
       replace(/&/g, "&amp;").
@@ -142,7 +142,7 @@ with(locals || {}) {
   }
 }
 }
-, "./views/nested_context.haml": function (locals) {
+, "nested_context": function (locals) {
 function html_escape(text) {
     return (text + "").
       replace(/&/g, "&amp;").
@@ -171,7 +171,7 @@ this.name +
   }
 }
 }
-, "./views/no_self_close_div.haml": function (locals) {
+, "no_self_close_div": function (locals) {
 function html_escape(text) {
     return (text + "").
       replace(/&/g, "&amp;").
@@ -187,7 +187,7 @@ with(locals || {}) {
   }
 }
 }
-, "./views/non-string-attribs.haml": function (locals) {
+, "non-string-attribs": function (locals) {
 function html_escape(text) {
     return (text + "").
       replace(/&/g, "&amp;").
@@ -203,7 +203,7 @@ with(locals || {}) {
   }
 }
 }
-, "./views/script_css.haml": function (locals) {
+, "script_css": function (locals) {
 function html_escape(text) {
     return (text + "").
       replace(/&/g, "&amp;").
@@ -219,7 +219,7 @@ with(locals || {}) {
   }
 }
 }
-, "./views/self_close.haml": function (locals) {
+, "self_close": function (locals) {
 function html_escape(text) {
     return (text + "").
       replace(/&/g, "&amp;").
@@ -241,7 +241,7 @@ with(locals || {}) {
   }
 }
 }
-, "./views/standard.haml": function (locals) {
+, "standard": function (locals) {
 function html_escape(text) {
     return (text + "").
       replace(/&/g, "&amp;").

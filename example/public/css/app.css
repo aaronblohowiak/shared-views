@@ -1,0 +1,30 @@
+body {
+	font-family:helvetica, sans-serif;
+}
+
+.outer-wrapper{
+	width: 100%;
+}
+
+.inner-wrapper{
+	width: 400px;
+	margin: 0 auto;
+}
+
+h1, #color{
+	text-align:center;
+}
+
+.content{
+	margin:100px 0;
+}
+
+.next{
+	position:relative;
+	float:right;
+}
+
+#color{
+	font-size:32px;
+	font-weight:bold;
+}

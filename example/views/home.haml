@@ -1,0 +1,5 @@
+%h1 Random Color App!
+%div{id: "color"}= this.render('color_detail', color)
+%button.next Next
+%p
+  If you look in firebug at the 'Net' request or 'View Source', you will see that the initial rendering of the color is right there in the source html.  However, when you hit 'Next', we use $.getJSON to retrieve another color and then render the *exact same* haml-js template on the client.  If you view templates.js you'll see that the template is pre-compiled, so we dont have to worry about a compilation lag. 

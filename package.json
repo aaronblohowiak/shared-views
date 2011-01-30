@@ -1,0 +1,25 @@
+{
+  "name": "shared-views",
+  "description": "Let your server and browser share your views.",
+  "version": "0.5.3",
+  "homepage": "https://github.com/aaronblohowiak/shared-views",
+  "repository": "git://github.com/aaronblohowiak/shared-views.git",
+  "author": "Aaron Blohowiak <aaron.blohowiak@gmail.com> (https://github.com/aaronblohowiak)",
+  "main": "index",
+  "directories": {
+    "lib": ""
+  },
+  "scripts": {
+    "test": "make test"
+  },
+  "engines": {
+    "node": "*"
+  },
+  "dependencies": {
+  
+  },
+  "devDependencies": {
+    "haml": "0.2.5",
+    "glob": "1.1.0"
+  }
+}
