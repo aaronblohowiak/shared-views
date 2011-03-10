@@ -1,5 +1,4 @@
-$templates={
-  "alt_attribs": function (locals) {
+$templates={  "alt_attribs": function (locals) {
 function html_escape(text) {
     return (text + "").
       replace(/&/g, "&amp;").
@@ -15,7 +14,7 @@ with(locals || {}) {
   }
 }
 }
-, "div_nesting": function (locals) {
+,  "div_nesting": function (locals) {
 function html_escape(text) {
     return (text + "").
       replace(/&/g, "&amp;").
@@ -31,7 +30,7 @@ with(locals || {}) {
   }
 }
 }
-, "doctype": function (locals) {
+,  "doctype": function (locals) {
 function html_escape(text) {
     return (text + "").
       replace(/&/g, "&amp;").
@@ -47,7 +46,7 @@ with(locals || {}) {
   }
 }
 }
-, "embedded_code": function (locals) {
+,  "embedded_code": function (locals) {
 function html_escape(text) {
     return (text + "").
       replace(/&/g, "&amp;").
@@ -69,7 +68,7 @@ id +
   }
 }
 }
-, "foreach": function (locals) {
+,  "foreach": function (locals) {
 function html_escape(text) {
     return (text + "").
       replace(/&/g, "&amp;").
@@ -108,7 +107,7 @@ word
   }
 }
 }
-, "meta": function (locals) {
+,  "meta": function (locals) {
 function html_escape(text) {
     return (text + "").
       replace(/&/g, "&amp;").
@@ -124,7 +123,7 @@ with(locals || {}) {
   }
 }
 }
-, "nanline": function (locals) {
+,  "nanline": function (locals) {
 function html_escape(text) {
     return (text + "").
       replace(/&/g, "&amp;").
@@ -142,7 +141,7 @@ with(locals || {}) {
   }
 }
 }
-, "nested_context": function (locals) {
+,  "nested_context": function (locals) {
 function html_escape(text) {
     return (text + "").
       replace(/&/g, "&amp;").
@@ -171,7 +170,7 @@ this.name +
   }
 }
 }
-, "no_self_close_div": function (locals) {
+,  "no_self_close_div": function (locals) {
 function html_escape(text) {
     return (text + "").
       replace(/&/g, "&amp;").
@@ -187,7 +186,7 @@ with(locals || {}) {
   }
 }
 }
-, "non-string-attribs": function (locals) {
+,  "non-string-attribs": function (locals) {
 function html_escape(text) {
     return (text + "").
       replace(/&/g, "&amp;").
@@ -203,7 +202,7 @@ with(locals || {}) {
   }
 }
 }
-, "script_css": function (locals) {
+,  "script_css": function (locals) {
 function html_escape(text) {
     return (text + "").
       replace(/&/g, "&amp;").
@@ -219,7 +218,7 @@ with(locals || {}) {
   }
 }
 }
-, "self_close": function (locals) {
+,  "self_close": function (locals) {
 function html_escape(text) {
     return (text + "").
       replace(/&/g, "&amp;").
@@ -241,7 +240,7 @@ with(locals || {}) {
   }
 }
 }
-, "standard": function (locals) {
+,  "standard": function (locals) {
 function html_escape(text) {
     return (text + "").
       replace(/&/g, "&amp;").
@@ -265,5 +264,5 @@ current_user.bio +
   }
 }
 }
-
+,  "render": function(k, v){ return this[k](v); }
 }

@@ -36,7 +36,11 @@ module.exports = {
     for(var templateName in templateFunctions){
       if(templateFunctions.hasOwnProperty(templateName)){
         fn = templateFunctions[templateName];
-        str = this.templateFunctionToString(fn);
+        if(typeof(fn)=="function"){
+          str = this.templateFunctionToString(fn);
+        } else if(typeof(fn)=="object"){
+          str = this.templateFunctionsToStrings(fn);
+        }
         templateFunctionStrings[templateName] = str;
       }
     }
@@ -56,22 +60,31 @@ module.exports = {
   },
 
   writeTemplateStrings : function(outputPath, asignee, templateFunctionStrings){
-    var first = true,
-        f = fs.openSync(outputPath, "w");
+    var  f = fs.openSync(outputPath, "w");
+    templateFunctionStrings["render"] = "function(k, v){ return this[k](v); }";
 
-    fs.writeSync(f, asignee +"={\n");
+    var objToString = function (obj){
+      var template = "",
+          output = "{",
+          first = true;
 
-    for(var k in templateFunctionStrings){
-      if(first){
-        fs.writeSync(f, '  "'+k+'": '+templateFunctionStrings[k]+"\n");
-        first = false;
-      } else{
-        fs.writeSync(f, ', "'+k+'": '+templateFunctionStrings[k]+"\n");
+      for(var k in obj){
+        template = obj[k];
+        if(typeof(template)=="object"){
+          template = objToString(template);
+        }
+        if(first){
+          first = false;
+        } else{
+          output = output + ',';
+        }
+        output = output + '  "'+k+'": '+template+"\n";
       }
+
+      return output + "}";
     }
     
-    fs.writeSync(f, ", render: function(name, locals){ return this[name](locals); }")
-    fs.writeSync(f, "\n}" );
+    fs.writeSync(f, asignee +"=" + objToString(templateFunctionStrings));
     fs.close(f);
   }
 }
