@@ -62,7 +62,7 @@ The `options` that you pass around must have the following properties:
 
 `filenamesToTemplates`: Requires `options` (all of them!). Reads `options.templateFileNames` and then uses `filenamesToTemplateFunctions` and `templateFunctionsToStrings` to return an object that has `functions` and `strings` properties.  Each of those properties is an object that has the templates by name (one as executable functions, the other as cleaned-up function declaration strings).
 
-`writeTemplateStrings`: Requires `outputPath`, `asignee`, and `templateFunctionStrings`.  Writes a valid js file to `outputPath` that assigns the templates to `asignee`, and includes a `render` function for convenience. 
+`writeTemplateStrings`: Requires `outputPath`, `asignee`, and `templateFunctionStrings`.  Writes a valid js file to `outputPath` that assigns the templates to `asignee`, and includes a `render` function for convenience.  If you pass an optional `filter` parameter, then the file source will be set to the return value of `filter(source)`. **Performs Synchronous I/O**
 
 ## TODO
 

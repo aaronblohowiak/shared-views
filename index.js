@@ -59,32 +59,36 @@ module.exports = {
     };
   },
 
-  writeTemplateStrings : function(outputPath, asignee, templateFunctionStrings){
-    var  f = fs.openSync(outputPath, "w");
-    templateFunctionStrings["render"] = "function(k, v){ return this[k](v); }";
+  objToString: function (obj){
+    var template = "",
+        output = "{",
+        first = true;
 
-    var objToString = function (obj){
-      var template = "",
-          output = "{",
-          first = true;
-
-      for(var k in obj){
-        template = obj[k];
-        if(typeof(template)=="object"){
-          template = objToString(template);
-        }
-        if(first){
-          first = false;
-        } else{
-          output = output + ',';
-        }
-        output = output + '  "'+k+'": '+template+"\n";
+    for(var k in obj){
+      template = obj[k];
+      if(typeof(template)=="object"){
+        template = objToString(template);
       }
-
-      return output + "}";
+      if(first){
+        first = false;
+      } else{
+        output = output + ',';
+      }
+      output = output + '  "'+k+'": '+template+"\n";
     }
-    
-    fs.writeSync(f, asignee +"=" + objToString(templateFunctionStrings));
+
+    return output + "}";
+  },
+  
+  writeTemplateStrings : function(outputPath, asignee, templateFunctionStrings, filter){
+    templateFunctionStrings["render"] = "function(k, v){ return this[k](v); }";
+    var src = asignee +"=" + this.objToString(templateFunctionStrings);
+    if(filter){
+      src = filter(src);
+    }
+
+    var  f = fs.openSync(outputPath, "w");
+    fs.writeSync(f, src);
     fs.close(f);
-  }
+  },
 }
