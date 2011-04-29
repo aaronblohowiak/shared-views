@@ -1,7 +1,7 @@
 {
   "name": "shared-views",
   "description": "Let your server and browser share your views.",
-  "version": "0.6.0",
+  "version": "0.6.1",
   "homepage": "https://github.com/aaronblohowiak/shared-views",
   "repository": "git://github.com/aaronblohowiak/shared-views.git",
   "author": "Aaron Blohowiak <aaron.blohowiak@gmail.com> (https://github.com/aaronblohowiak)",

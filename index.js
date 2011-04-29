@@ -15,11 +15,11 @@ module.exports = {
       fn = options.sourceToFunction(fs.readFileSync(currentFile, 'utf-8'));
       templateFunctions[filenameToTemplateName(currentFile)] = fn;
     }
-  
+
     templateFunctions.render = function(name, locals){
       return this[name](locals);
     };
-    
+
     return templateFunctions;
   },
 
@@ -59,6 +59,7 @@ module.exports = {
     };
   },
 
+  //this should possibly be a different project
   objToString: function (obj){
     var template = "",
         output = "{",
@@ -67,7 +68,7 @@ module.exports = {
     for(var k in obj){
       template = obj[k];
       if(typeof(template)=="object"){
-        template = objToString(template);
+        template = this.objToString(template);
       }
       if(first){
         first = false;
