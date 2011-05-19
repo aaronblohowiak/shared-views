@@ -12,7 +12,7 @@ module.exports = {
 
     for (var i=0, l = templateFileNames.length; i < l; i++) {
       currentFile = templateFileNames[i];
-      fn = options.sourceToFunction(fs.readFileSync(currentFile, 'utf-8'));
+      fn = options.sourceToFunction(fs.readFileSync(currentFile, 'utf-8'), currentFile);
       templateFunctions[filenameToTemplateName(currentFile)] = fn;
     }
 

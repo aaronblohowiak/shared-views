@@ -2,6 +2,8 @@
 
 `shared-views` lets you compile templates for use on the server and browser.  You'll be able to have the same templates and call `render` and have it "just work" on the server and on the client.
 
+It will let you call $templates.render(name, locals) in either context and have the same result.
+
 `shared-views` has no dependencies, but to use it you will need a template engine that is able to take a string and return a function that applies that template. The example uses haml-js.
 
 ### install
@@ -48,7 +50,7 @@ The `options` that you pass around must have the following properties:
 
 `templateFileNames`: An array of file names that contain the sources. Example: ["./views/item.haml"]
 
-`sourceToFunction`: a function that is passed a template `source` and returns a function able to render that template. Example: function(source) { return Haml(source, false); }
+`sourceToFunction`: a function that is passed a template `source`, the filename (if you wnat to include it for debugging or whatever) and returns a function able to render that template. Example: function(source) { return Haml(source, false); }
 
 `filenameToTemplateName`: a function that is passed a `filename` and returns the template name as a string. Example: function(filename){ return filename.replace(/^\.\/views\//, '').replace(/\.haml$/, '');}
 
