@@ -67,8 +67,10 @@ module.exports = {
 
     for(var k in obj){
       template = obj[k];
-      if(typeof(template)=="object"){
+      if(typeof(template)==="object"){
         template = this.objToString(template);
+      }else if(typeof(template)==="string"){
+        template = JSON.stringify(template);
       }
       if(first){
         first = false;
