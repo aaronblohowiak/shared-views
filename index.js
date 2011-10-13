@@ -12,7 +12,13 @@ module.exports = {
 
     for (var i=0, l = templateFileNames.length; i < l; i++) {
       currentFile = templateFileNames[i];
-      fn = options.sourceToFunction(fs.readFileSync(currentFile, 'utf-8'), currentFile);
+      try{
+        fn = options.sourceToFunction(fs.readFileSync(currentFile, 'utf-8'), currentFile);
+      }catch(e){
+        console.error("Error while compiling:", currentFile);
+        throw e;
+      }
+
       templateFunctions[filenameToTemplateName(currentFile)] = fn;
     }
 
@@ -94,4 +100,4 @@ module.exports = {
     fs.writeSync(f, src);
     fs.close(f);
   },
-}
+};
