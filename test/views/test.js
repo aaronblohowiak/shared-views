@@ -1,6 +1,6 @@
 var fs = require('fs');
 var assert = require('assert');
-var sys = require('sys');
+var util = require('util');
 
 var Haml = require("../lib/haml");
 
@@ -22,16 +22,16 @@ fs.readdir('.', function (err, files) {
             var actual = Haml(haml).call(scope.context, scope.locals);
             assert.equal(actual, expected);
             
-            sys.puts(haml_file + " Passed")
+            util.puts(haml_file + " Passed")
           } catch (e) {
             var message = e.name;
             if (e.message) { message += ": " + e.message; }
-            sys.error(haml_file + " FAILED")
-            sys.error(message);
-            sys.error("\nJS:\n\n" + js);
-            sys.error("\nOptimized JS:\n\n" + js_opt);
-            sys.error("\nActual:\n\n" + actual);
-            sys.error("\nExpected:\n\n" + expected);
+            util.error(haml_file + " FAILED")
+            util.error(message);
+            util.error("\nJS:\n\n" + js);
+            util.error("\nOptimized JS:\n\n" + js_opt);
+            util.error("\nActual:\n\n" + actual);
+            util.error("\nExpected:\n\n" + expected);
             process.exit();
           }
         });
